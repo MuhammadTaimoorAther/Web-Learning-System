@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS to remove padding and margin on container and all div elements */
+        .no-padding {
+            padding: 0;
+        }
+
+        .no-margin {
+            margin: 0;
+        }
+
+        /* Remove padding and margin on container class */
+        .container.no-padding,
+        .container.no-padding .row,
+        .container.no-padding [class^="col-"],
+        .container.no-padding [class*="col-"] {
+            padding: 0;
+            margin: 0;
+            margin-right: 0;
+        }
+        #videoContainer {
+            position: relative;
+            width: 640px;
+            height: 360px;
+        }
+
+        #videoPlayer {
+            width: 100%;
+            height: 100%;
+        }
+
+        .controlButtons {
+            z-index: 1;  
+            transform: translateX(-50%);
+            position:absolute;
+            bottom: 30px; 
+            left: 26%;
+            transform: translateX(-50%);
+            background-color: transparent;
+            
+        }
+
+        .controlButtons button {
+            background-color: transparent;
+            color: white;
+            border: none; /* Remove the border */
+            border-radius: 4px;
+            padding: 3px 5px;
+            margin: 1px;
+            cursor: pointer;
+         
+            
+        }
+
+        .controlButtons button:hover {
+            background-color: white;
+            color: black;
+          
+        }
+        #videoContainer:hover .controlButtons {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container no-padding">
+        <div class="row">
+            <div class="col-md-4 no-padding">
+                <!-- Left div content goes here -->
+                <div>
+                    <div style="background-color: rgb(220, 240, 250);padding: 20px;">
+                        <div class="card" style="border-radius: 20px;">
+                            <img src="IT.jpg" class="card-img-top" alt="Card Image">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="main2.html" >Information Technology</a></h5>
+                                <p class="card-text">There are videos for the Course Information Technology.</p>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            <div class="lesson" style="background-color: rgb(247, 247, 248); padding: 20px;">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light" onclick="reloadDiv1()">Lecture no. 1</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light" onclick="reloadDiv2()">Lecture no. 2 </a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light">Lecture no. 3</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light">Lecture no. 4</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light">Lecture no. 5</a>
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-light">Lecture no. 6</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-8 no-padding"  style="padding:20px;">
+                <!-- Right div content goes here -->
+                <div id="reload" style="width: 700 px;">
+                    <h2>Introduction to Information Technology</h2>
+                    <p>In this Video you will get an overview of Information Technology and the content we will learn in this course.</p>
+                    <div style="max-width: 140%;" id="videoContainer" >
+                        <video id="videoPlayer" controls controls style="width:140%;">
+                            <!-- Replace 'your_video_url.mp4' with the URL of your video file -->
+                            <source src="video.mp4" type="video/mp4">
+                            <!-- Add other video formats if needed -->
+                            <!-- <source src="your_video_url.webm" type="video/webm"> -->
+                            <!-- <source src="your_video_url.ogv" type="video/ogg"> -->
+                            Your browser does not support the video tag.
+                            <!-- Forward and Reverse buttons within the video player -->
+
+                        </video>
+                        <div class="controlButtons">
+                            <button onclick="seekVideo(-5)">-5s</button>
+                            <button onclick="seekVideo(5)">+5s</button>
+                            
+                        </div>
+                    </div>
+                   
+                    <button type="button" class="btn btn-secondary" onclick="next()" style="margin-top: 10px;">Next Lecture</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS (optional) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function reloadDiv1() {
+            // Change "new_page.html" to the URL of the page you want to redirect to
+            window.location.href = "lesson1.html";
+        }
+        function reloadDiv2() {
+            // Change "new_page.html" to the URL of the page you want to redirect to
+            window.location.href = "lesson2.html";
+        }
+        function reloadDiv3() {
+            // Change "new_page.html" to the URL of the page you want to redirect to
+            window.location.href = "lesson3.html";
+        }
+        function next() {
+            // Change "new_page.html" to the URL of the page you want to redirect to
+            window.location.href = "lesson1.html";
+        }
+                // Function to toggle full-screen mode
+                function toggleFullScreen() {
+                    const videoPlayer = document.getElementById('videoPlayer');
+                    if (videoPlayer.requestFullscreen) {
+                        videoPlayer.requestFullscreen();
+                    } else if (videoPlayer.mozRequestFullScreen) { // Firefox
+                        videoPlayer.mozRequestFullScreen();
+                    } else if (videoPlayer.webkitRequestFullscreen) { // Chrome, Safari & Opera
+                        videoPlayer.webkitRequestFullscreen();
+                    } else if (videoPlayer.msRequestFullscreen) { // IE/Edge
+                        videoPlayer.msRequestFullscreen();
+                    }
+                }
+                const videoPlayer = document.getElementById('videoPlayer');
+
+                // Function to seek the video forward or backward by the given seconds
+                function seekVideo(seconds) {
+                    const currentTime = videoPlayer.currentTime;
+                    // Ensure the seek operation doesn't go beyond video duration or negative time
+                    const targetTime = Math.max(0, Math.min(currentTime + seconds, videoPlayer.duration));
+                    videoPlayer.currentTime = targetTime;
+                }
+                const videoContainer = document.getElementById('videoContainer');
+                const controlButtons = document.querySelector('.controlButtons');
+        
+                videoContainer.addEventListener('mouseenter', () => {
+                    controlButtons.style.display = 'block';
+                });
+        
+                videoContainer.addEventListener('mouseleave', () => {
+                    controlButtons.style.display = 'none';
+                });
+        
+                function seekVideo(seconds) {
+                    const videoPlayer = document.getElementById('videoPlayer');
+                    const currentTime = videoPlayer.currentTime;
+                    videoPlayer.currentTime = currentTime + seconds;
+                }
+    </script>
+</body>
+</html>

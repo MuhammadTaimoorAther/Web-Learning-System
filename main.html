@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectures Videos</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+        }
+        .center-container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* To make sure dropdowns are positioned relative to this container */
+            background-color: rgb(114, 182, 234);
+        }
+        .dropdown-wrapper {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            display: flex;
+            align-items: center;
+        }
+        .dropdown-wrapper .dropdown:not(:last-child) {
+            margin-right: 20px;
+        }
+        .search-box {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container" style="background-image: url('BG.png');" >
+        <div class="dropdown-wrapper d-flex">
+            <!-- First dropdown -->
+            <div class="dropdown">
+                <label for="category" class="badge bg-primary" style="color: white;">Category:</label>
+                <select name="category" id="category" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                  <option value="Category1">Category 1</option>
+                  <option value="Category2">Category 2</option>
+                  <option value="Category3">Category 3</option>
+                  <option value="Category4">Category 4</option>
+                </select>
+               
+            </div>
+            <!-- Second dropdown -->
+
+        </div>
+        <div class="container" >
+            <div class="row" style="background-color: rgb(220, 240, 250);padding: 20px; border-radius: 20px;">
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="card" style="border-radius: 20px;">
+                        <img src="IT.jpg" class="card-img-top" alt="Card Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="main2.html" >Information Technology</a></h5>
+                            <p class="card-text">There are videos for the Course Information Technology.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="card"  style="border-radius: 20px;">
+                        <img src="IT2.jpg" class="card-img-top" alt="Card Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="main2.html" >Information Technology</a></h5>
+                            <p class="card-text">There are videos for the Course Information Technology.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="card"  style="border-radius: 20px;">
+                        <img src="IT3.jpg" class="card-img-top" alt="Card Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="main2.html">Information Technology</a></h5>
+                            <p class="card-text">There are videos for the Course Information Technology.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS (optional, only required for some Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</body>
+</html>
